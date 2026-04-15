@@ -1,0 +1,54 @@
+{
+  "name": "awapaya",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@supabase/supabase-js": "^2.87.1",
+    "@testing-library/dom": "^10.4.1",
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^16.3.0",
+    "@testing-library/user-event": "^13.5.0",
+    "http-proxy-middleware": "^3.0.5",
+    "lucide-react": "^0.555.0",
+    "prettier": "^3.7.4",
+    "react": "^19.2.1",
+    "react-dom": "^19.2.1",
+    "react-router": "^7.10.1",
+    "react-router-dom": "^7.10.1",
+    "react-scripts": "5.0.1",
+    "web-vitals": "^2.1.4"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "start:prince": "env-cmd -f .env.prince react-scripts start",
+    "start:emeka": "env-cmd -f .env.emeka react-scripts start",
+    "start:fastsub": "env-cmd -f .env.fastsub react-scripts start",
+    "build:prince": "env-cmd -f .env.prince react-scripts build",
+    "build:emeka": "env-cmd -f .env.emeka react-scripts build",
+    "build:fastsub": "env-cmd -f .env.fastsub react-scripts build"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "env-cmd": "^11.0.0"
+  }
+}
