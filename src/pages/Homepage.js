@@ -7,6 +7,7 @@ import MobilePhone from "../img/mobile_phone.png";
 import AboutPhone from "../img/about.png";
 import Mojeed from "../img/mojeed.jpg";
 import Tenny from "../img/tenny.jpg";
+import Sasha from "../img/sasha.jpg";
 import IT from "../img/IT.jpg";
 
 import "./Homepage.css";
@@ -44,7 +45,7 @@ const Homepage = () => {
     {
       icon: "🚀",
       title: "WE'RE FAST",
-      desc: "Awapaya lets you purchase mobile data, top up airtime, pay your cable and electricity bills e.t.c all at the speed of light.",
+      desc: "Erijane Data hub hub lets you purchase mobile data, top up airtime, pay your cable and electricity bills e.t.c all at the speed of light.",
     },
     {
       icon: "🛡️",
@@ -77,7 +78,7 @@ const Homepage = () => {
     {
       icon: "📱",
       title: "AIRTIME TOPUP",
-      desc: "Making an online recharge has become very easy and safe on Awapaya.",
+      desc: "Making an online recharge has become very easy and safe on Erijane Data hub.",
     },
     {
       icon: "💵",
@@ -106,10 +107,10 @@ const Homepage = () => {
       text: '"I love the quick response to issues. We might just get along well. So far so good. There\'s no star here but I give ⭐⭐⭐.."',
     },
     {
-      name: "I.T-Guy",
+      name: "Sasha",
       role: "UI / UX Designer",
-      avatar: IT,
-      text: '"This site is great... All thanks to Awapaya.com. I can really say that since I joined this site I have been earning more than before..."',
+      avatar: Sasha,
+      text: '"This site is great... All thanks to Erijane Data hub.com. I can really say that since I joined this site I have been earning more than before..."',
     },
     {
       name: "Tenny",
@@ -154,7 +155,7 @@ const Homepage = () => {
       <nav className="nav gradient-bg">
         <div className="nav-container">
           <Link to="/">
-            <img src={Logo} alt="Awapaya Logo" className="logo" />
+            <img src={Logo} alt="Erijane Data hub Logo" className="logo" />
           </Link>
 
           {/* Desktop Nav */}
@@ -221,11 +222,11 @@ const Homepage = () => {
       <section id="home" className="hero gradient-bg">
         <div className="hero-container">
           <div className="hero-text">
-            <h1>WELCOME TO AWAPAYA</h1>
+            <h1>WELCOME TO ERIJANE DATA HUB</h1>
             <p>
-              Awapaya is a Telecommunication company. At Awapaya, we offer best
-              deals when it comes to internet Data Plans, Airtime, Bills payment
-              like GOTV, DSTV & STARTIMES.
+              Erijane Data hub is a Telecommunication company. At Erijane Data
+              hub, we offer best deals when it comes to internet Data Plans,
+              Airtime, Bills payment like GOTV, DSTV & STARTIMES.
             </p>
             <div className="hero-buttons">
               <Link to="/login" className="btn btn-outline">
@@ -247,18 +248,18 @@ const Homepage = () => {
           <div className="title-underline small"></div>
         </div>
         <p className="section-description">
-          Awapaya is a registered telecommunication vendor known for providing
-          internet services, airtime VTU, cable TV subscriptions, electricity
-          payment.
+          Erijane Data hub is a registered telecommunication vendor known for
+          providing internet services, airtime VTU, cable TV subscriptions,
+          electricity payment.
         </p>
         <div className="container about-grid">
           <div className="about-content">
             <h3>RELIABLE TELECOMMUNICATION COMPANY</h3>
             <div className="content-underline"></div>
             <p>
-              Awapaya also gives people the opportunity of becoming their
-              reseller and be making money on hourly and daily basis so as to
-              boost their financial status.
+              Erijane Data hub also gives people the opportunity of becoming
+              their reseller and be making money on hourly and daily basis so as
+              to boost their financial status.
             </p>
             <p>
               We offer instant recharge of Airtime, Databundle, CableTV (DStv,
@@ -317,7 +318,7 @@ const Homepage = () => {
           <div className="title-underline big"></div>
           <div className="title-underline small"></div>
           <p className="section-description">
-            Here at Awapaya our services are completely Fast, Secure &
+            Here at Erijane Data hub our services are completely Fast, Secure &
             Automated. We provide 24/7 Support to our registered users.
           </p>
         </div>
@@ -582,9 +583,10 @@ const Homepage = () => {
           <div className="title-underline big"></div>
           <div className="title-underline small"></div>
           <p>
-            Download Awapaya Android app, compatible with all devices. Search
-            for Awapaya on playstore or click on the button below to download
-            the app on Playstore. Will soon be available on App Store.
+            Download Erijane Data hub Android app, compatible with all devices.
+            Search for Erijane Data hub on playstore or click on the button
+            below to download the app on Playstore. Will soon be available on
+            App Store.
           </p>
           <button className="download-btn">available on PLAY STORE</button>
         </div>
@@ -609,7 +611,7 @@ const Homepage = () => {
           <div className="contact-card">
             <div className="contact-icon">✉️</div>
             <h3>E-mail Address:</h3>
-            <p>info@Awapaya.com</p>
+            <p>info@erijanedata.com</p>
           </div>
           <div className="contact-card">
             <div className="contact-icon">📞</div>
@@ -623,11 +625,11 @@ const Homepage = () => {
       <footer className="footer">
         <div className="footer-grid">
           <div className="footer-section">
-            <h3>Awapaya</h3>
+            <h3>Erijane Data hub</h3>
             <p>
-              Awapaya is a company of Awapaya Nigeria Limited. We offer best
-              deals when it comes to internet Data Plans, Airtime, Bills payment
-              like GOTV, DSTV & STARTIMES.
+              Erijane Data hub is a company of Erijane Data hub Nigeria Limited.
+              We offer best deals when it comes to internet Data Plans, Airtime,
+              Bills payment like GOTV, DSTV & STARTIMES.
             </p>
           </div>
           <div className="footer-section">
@@ -658,7 +660,9 @@ const Homepage = () => {
           </div>
         </div>
         <div className="footer-bottom">
-          <p>Awapaya by Prius2055 Copyright © 2026 All Rights Reserved</p>
+          <p>
+            Erijane Data hub by Prius2055 Copyright © 2026 All Rights Reserved
+          </p>
         </div>
       </footer>
     </div>

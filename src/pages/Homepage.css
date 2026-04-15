@@ -10,7 +10,7 @@
   ── Deep navy   #0B1F3A  (primary dark)
   ── Electric    #0066FF  (primary accent)
   ── Sky         #00C2FF  (secondary accent)
-  ── Amber       #FF8C00  (CTA / highlight)
+  ── racing-red       #FF8C00  (CTA / highlight)
   ── Off-white   #F0F4FF  (background)
   ── Text dark   #0B1F3A
   ── Text mid    #4A6080
@@ -19,16 +19,26 @@
 
 :root {
   --navy: #030d4e;
-  --navy-deep: #010828;
+  /* --navy-deep: #010828; */
+  --deep-navy: #031b4dff;
   --electric: #0a1570;
   --sky: #1e3a9f;
-  --amber: #f8a01c;
-  --amber-lt: #ffbb4d;
+  /* --racing-red: #f8a01c; */
+  --racing-red: #e31911ff;
+  --racing-red-lt: #ec6661;
   --off-white: #f5f7ff;
   --text-dark: #030d4e;
   --text-mid: #3a4a7a;
   --border: #c8d0f0;
 }
+
+/* 
+--black: #000000ff;
+--deep-navy: #031B4Dff;
+--black-2: #000000ff;
+--lilac-ash: #AB99A2ff;
+--racing-red: #E31911ff;
+ */
 
 .homepage {
   font-family:
@@ -49,7 +59,7 @@
   z-index: 1000;
   background: var(--off-white);
   box-shadow: 0 2px 16px rgba(248, 160, 28, 0.2);
-  border-bottom: 3px solid var(--amber);
+  border-bottom: 3px solid var(--racing-red);
 }
 
 .nav-container {
@@ -93,7 +103,7 @@
 
 .nav-links a:hover,
 .nav-links p:hover {
-  color: var(--amber);
+  color: var(--racing-red);
   border-color: #030d4e;
 }
 
@@ -131,12 +141,12 @@
 }
 
 .btn-outline {
-  background: var(--amber);
-  color: var(--navy);
+  background: var(--racing-red);
+  color: var(--off-white);
   text-decoration: none;
 }
 .btn-outline:hover {
-  background: var(--amber-lt);
+  background: var(--racing-red-lt);
   transform: translateY(-2px);
 }
 
@@ -190,13 +200,12 @@
   background-image:
     linear-gradient(
       135deg,
-      rgba(3, 13, 78, 0.95) 0%,
-      rgba(10, 21, 112, 0.7) 100%
+      rgba(3, 13, 78, 0.5) 0%,
+      rgba(10, 21, 112, 0.65) 100%
     ),
     url("./../img/hero-bg.jpg");
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: center;
 }
 
 .hero-container {
@@ -347,7 +356,7 @@ section {
   box-shadow: 0 25px 50px rgba(3, 13, 78, 0.25);
 }
 .phone-display-inner {
-  background: var(--navy-deep);
+  background: var(--deep-navy);
   border-radius: 20px;
   height: 100%;
 }
@@ -505,7 +514,7 @@ section {
 .stats-section {
   background: linear-gradient(
     135deg,
-    var(--navy-deep) 0%,
+    var(--deep-navy) 0%,
     var(--navy) 60%,
     #0d1f6e 100%
   );
@@ -570,9 +579,9 @@ section {
   color: var(--sky);
 }
 .stat-item:hover .stat-icon-circle {
-  border-color: var(--amber);
+  border-color: var(--racing-red);
   transform: scale(1.1);
-  color: var(--amber);
+  color: var(--racing-red);
 }
 
 .stat-value {
@@ -640,9 +649,11 @@ section {
   background: white;
   padding: 2.5rem;
   box-shadow: 0 15px 35px rgba(3, 13, 78, 0.1);
-  clip-path: polygon(0% 0%, 100% 0, 100% 100%, 50% 83%, 0% 100%);
-  min-height: 350px;
-  border-top: 3px solid var(--electric);
+  min-height: 320px;
+  border-top: 3px solid var(--deep-navy);
+  border-right: 3px solid var(--off-white);
+  border-bottom: 3px solid var(--off-white);
+  border-left: 3px solid var(--off-white);
 }
 
 .quote-icon {
@@ -679,7 +690,7 @@ section {
 .testimonial-author {
   text-align: center;
   position: absolute;
-  bottom: -25%;
+  bottom: -35%;
   left: 34%;
 }
 
@@ -746,7 +757,7 @@ section {
   transition: background 0.3s;
 }
 .btn_buy_data:hover {
-  background: var(--amber);
+  background: var(--racing-red);
 }
 
 #services {
@@ -854,9 +865,9 @@ section {
 }
 
 .download-btn {
-  background: var(--amber);
+  background: var(--racing-red);
   border: none;
-  color: var(--navy);
+  color: var(--off-white);
   cursor: pointer;
   font-size: 0.9375rem;
   font-weight: 800;
@@ -869,7 +880,7 @@ section {
 .download-btn:hover {
   transform: translateY(-5px);
   box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25);
-  background: var(--amber-lt);
+  background: var(--racing-red-lt);
 }
 
 /* ── Contact ── */
@@ -893,7 +904,7 @@ section {
 .contact-card:hover {
   transform: translateY(-4px);
   box-shadow: 0 8px 24px rgba(3, 13, 78, 0.12);
-  border-bottom-color: var(--amber);
+  border-bottom-color: var(--racing-red);
 }
 
 .contact-icon {
@@ -931,7 +942,7 @@ section {
 
 /* ── Footer ── */
 .footer {
-  background: var(--navy-deep);
+  background: var(--deep-navy);
   color: white;
   padding: 4rem 2rem 2rem;
 }
