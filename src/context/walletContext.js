@@ -125,7 +125,7 @@ export const WalletProvider = ({ children }) => {
     try {
       const response = await fetch(`${BASE_URL}/vtu/data-plans`, {
         method: "GET",
-        headers: getHeaders(),
+        headers: getHeaders(false),
       });
       const data = await response.json();
 

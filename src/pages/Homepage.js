@@ -606,7 +606,7 @@ const Homepage = () => {
           <div className="contact-card">
             <div className="contact-icon">📍</div>
             <h3>Office Address:</h3>
-            <p>6 Itelorun Close off Adeniyi Jones, Ikeja, Lagos State</p>
+            <p>No 65 Oronna Street Madakeke, Ife, Osun state</p>
           </div>
           <div className="contact-card">
             <div className="contact-icon">✉️</div>
@@ -616,7 +616,7 @@ const Homepage = () => {
           <div className="contact-card">
             <div className="contact-icon">📞</div>
             <h3>Phone Number:</h3>
-            <p>Call: +234 0704 485 9310</p>
+            <p>Call: +234 (0)706 544 2300</p>
           </div>
         </div>
       </section>
