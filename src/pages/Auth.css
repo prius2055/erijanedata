@@ -262,7 +262,7 @@ auth.css * {
 }
 
 .terms-link {
-  color: #d4850e;
+  color: #e31911ff;
   text-decoration: none;
   font-weight: 600;
 }
@@ -279,7 +279,7 @@ auth.css * {
 }
 
 .forgot-link {
-  color: #d4850e;
+  color: #e31911ff;
   font-size: 0.875rem;
   text-decoration: none;
   font-weight: 600;
@@ -305,8 +305,7 @@ auth.css * {
 }
 
 .btn-submit:hover {
-  background: #f8a01c;
-  color: #0a1570;
+  background: #e31911ff;
   transform: translateY(-2px);
   box-shadow: 0 6px 18px rgba(248, 160, 28, 0.38);
 }
@@ -337,7 +336,7 @@ auth.css * {
 }
 
 .auth-switch a:hover {
-  color: #d4850e;
+  color: #e31911ff;
   text-decoration: underline;
 }
 

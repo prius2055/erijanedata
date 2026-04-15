@@ -126,7 +126,7 @@ const Register = () => {
   return (
     <div className="auth-container">
       <div className="auth-card register-card">
-        <h1 className="auth-brand">Subadex</h1>
+        <h1 className="auth-brand">Erijane Data Hub</h1>
         <h2 className="auth-title">Sign Up</h2>
 
         <div className="auth-form">
