@@ -467,12 +467,12 @@ const MarketerDashboard = () => {
               >
                 💸 Request Withdrawal
               </button> */}
-              <button
+              {/* <button
                 className="md-btn md-btn-secondary"
                 onClick={() => navigate("/marketer/settings")}
               >
                 ⚙️ Settings
-              </button>
+              </button> */}
             </div>
           </div>
 
