@@ -293,7 +293,7 @@ body {
   display: none;
   background: none;
   border: none;
-  color: white;
+  color: var(--navy-deep);
   font-size: 32px;
   cursor: pointer;
   padding: 5px 10px;
