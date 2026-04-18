@@ -86,7 +86,7 @@ const Loading = ({
 
           {/* Letter centre */}
           <div className="spinner-center">
-            <span className={`logo-letter logo-${size}`}>EJ</span>
+            <span className={`logo-letter logo-${size}`}>EJD</span>
           </div>
         </div>
 

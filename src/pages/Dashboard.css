@@ -68,7 +68,6 @@ body {
   color: white;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   position: fixed;
   height: 100vh;
   overflow-y: auto;
@@ -296,7 +295,7 @@ body {
   display: none;
   background: none;
   border: none;
-  font-size: 32px;
+  font-size: 28px;
   cursor: pointer;
   padding: 5px 10px;
 }
@@ -1221,7 +1220,7 @@ body {
   }
 
   .nav-item {
-    padding: 9px 24px;
+    padding: 12px 24px;
     font-weight: 400;
   }
 }
