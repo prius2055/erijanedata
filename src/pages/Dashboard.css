@@ -68,6 +68,7 @@ body {
   color: white;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   position: fixed;
   height: 100vh;
   overflow-y: auto;
@@ -157,7 +158,9 @@ body {
 
 /* ── Nav ── */
 .nav-menu {
-  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   padding: 14px 0;
 }
 
@@ -1191,12 +1194,30 @@ body {
     padding: 0 22px;
   }
 
+  .user-avatar {
+    width: 50px;
+    height: 50px;
+  }
+
   .user-info {
     padding: 8px 22px;
   }
 
+  .user-name {
+    font-size: 17px;
+    font-weight: 500;
+  }
+
+  .user-balance {
+    font-size: 14px;
+  }
+
   .sidebar-footer {
     padding: 10px 24px;
+  }
+
+  .nav-menu {
+    padding: 0;
   }
 
   .nav-item {
@@ -1285,12 +1306,6 @@ body {
     grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
   }
 
-  .user-name {
-    font-size: 19px;
-  }
-  .user-balance {
-    font-size: 17px;
-  }
   .sidebar-header h2 {
     font-size: 21px;
   }
