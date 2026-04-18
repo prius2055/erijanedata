@@ -47,7 +47,7 @@ const SideBar = ({ marketerWalletBalance }) => {
     <div className={`sidebar ${mobileMenu ? "open" : ""}`}>
       <div className="sidebar-header">
         <div
-          className="mobile-menu-toggle"
+          className="mobile-menu-toggle x"
           onClick={closeMobileMenu}
           aria-label="Close menu"
         >

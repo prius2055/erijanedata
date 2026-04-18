@@ -8,7 +8,7 @@ import Logo from "../img/logo.png";
 import "./../pages/Dashboard.css";
 
 const Header = () => {
-  const {loggingOut } = useAuth();
+  const { loggingOut } = useAuth();
   const { mobileMenu, toggleMobileMenu } = useMenu();
 
   const onMobileMenu = () => {
@@ -34,7 +34,7 @@ const Header = () => {
   return (
     <div className="top-header">
       <div
-        className="mobile-menu-toggle"
+        className="mobile-menu-toggle hambuger"
         onClick={onMobileMenu}
         aria-label="Toggle menu"
       >

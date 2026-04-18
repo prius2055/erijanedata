@@ -495,6 +495,16 @@ const MarketerDashboard = () => {
           <div className="md-main-grid">
             <div className="md-panel">
               <div className="md-panel-header">
+                <h2 className="md-panel-title">Quick Actions</h2>
+              </div>
+              <div className="md-quick-links">
+                {quickLinks.map((link, i) => (
+                  <QuickLink key={i} {...link} />
+                ))}
+              </div>
+            </div>
+            <div className="md-panel">
+              <div className="md-panel-header">
                 <h2 className="md-panel-title">Recent Transactions</h2>
                 <button
                   className="md-panel-link"
@@ -546,17 +556,6 @@ const MarketerDashboard = () => {
                   ))}
                 </div>
               )}
-            </div>
-
-            <div className="md-panel">
-              <div className="md-panel-header">
-                <h2 className="md-panel-title">Quick Actions</h2>
-              </div>
-              <div className="md-quick-links">
-                {quickLinks.map((link, i) => (
-                  <QuickLink key={i} {...link} />
-                ))}
-              </div>
             </div>
           </div>
 

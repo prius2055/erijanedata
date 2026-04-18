@@ -81,16 +81,16 @@ body {
   align-items: center;
   justify-content: space-between;
   border-bottom: 2px solid var(--gold);
-  min-height: 5.5rem;
+  /* min-height: 5.5rem; */
   padding: 0 22px;
 }
 
-.sidebar-header h2 {
+/* .sidebar-header h2 {
   font-size: 22px;
   font-weight: 800;
   color: var(--gold);
   letter-spacing: 0.5px;
-}
+} */
 
 .menu-toggle {
   background: none;
@@ -293,10 +293,17 @@ body {
   display: none;
   background: none;
   border: none;
-  color: var(--navy-deep);
   font-size: 32px;
   cursor: pointer;
   padding: 5px 10px;
+}
+
+/* .hambuger {
+  color: var(--navy-deep);
+} */
+
+.x {
+  color: var(--off-white);
 }
 
 .logout-btn {
@@ -1178,9 +1185,23 @@ body {
 /* ════════════════════════════════
    RESPONSIVE
 ════════════════════════════════ */
+
 @media (max-width: 992px) {
-  .sidebar {
-    height: 200vh;
+  .sidebar-header {
+    padding: 0 22px;
+  }
+
+  .user-info {
+    padding: 8px 22px;
+  }
+
+  .sidebar-footer {
+    padding: 10px 24px;
+  }
+
+  .nav-item {
+    padding: 9px 24px;
+    font-weight: 400;
   }
 }
 
@@ -1263,10 +1284,7 @@ body {
   .quick-actions-grid {
     grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
   }
-  .nav-item {
-    font-size: 18px;
-    padding: 17px 24px;
-  }
+
   .user-name {
     font-size: 19px;
   }
