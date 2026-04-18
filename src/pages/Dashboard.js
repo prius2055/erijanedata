@@ -34,6 +34,8 @@ const Dashboard = () => {
     refreshWallet,
   } = useWallet();
 
+  console.log('virtual accounts:', virtualAccounts);
+
   const navigate = useNavigate();
 
   const { referralEarnings, referralsCount } = user;

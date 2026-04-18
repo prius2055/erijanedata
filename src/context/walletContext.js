@@ -39,11 +39,6 @@ export const WalletProvider = ({ children }) => {
    * REFRESH WALLET
    * ───────────────────────────────────────────────────────── */
   const refreshWallet = useCallback(async () => {
-    if (!token) {
-      setLoading(false);
-      return;
-    }
-
     try {
       const response = await fetch(`${BASE_URL}/wallet/get`, {
         headers: getHeaders(),
@@ -52,6 +47,7 @@ export const WalletProvider = ({ children }) => {
       const data = await response.json();
 
       if (data.status === "success") {
+        console.log("Wallet data refreshed:", data);
         const wallet = data.data.wallet;
         setBalance(wallet.balance);
         setTotalFunded(wallet.totalFunded);
@@ -67,7 +63,7 @@ export const WalletProvider = ({ children }) => {
     } finally {
       setLoading(false);
     }
-  }, [token]);
+  }, []);
 
   /* ─────────────────────────────────────────────────────────
    * FUND WALLET — PaymentPoint virtual account
@@ -223,7 +219,6 @@ export const WalletProvider = ({ children }) => {
    * METER VALIDATION & RECHARGE
    * ───────────────────────────────────────────────────────── */
   const meterValidation = async (payload) => {
-    if (!token) return { success: false, message: "User not authenticated" };
     setLoading(true);
     setError(null);
     try {

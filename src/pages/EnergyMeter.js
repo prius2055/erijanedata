@@ -69,10 +69,10 @@ const EnergyMeter = () => {
       return;
     }
 
-    if (!formData.amount || formData.amount < 500) {
-      setError("Please enter a valid amount (minimum ₦500)");
-      return;
-    }
+    // if (!formData.amount || formData.amount < 500) {
+    //   setError("Please enter a valid amount (minimum ₦500)");
+    //   return;
+    // }
 
     const payload = {
       disco_name: formData.discoName,
@@ -132,10 +132,10 @@ const EnergyMeter = () => {
       return;
     }
 
-    if (!formData.amount || formData.amount < 500) {
-      setError("Please enter a valid amount (minimum ₦500)");
-      return;
-    }
+    // if (!formData.amount || formData.amount < 500) {
+    //   setError("Please enter a valid amount (minimum ₦500)");
+    //   return;
+    // }
 
     const payload = {
       disco_name: DISCO_NAME_MAP[formData.discoName],
@@ -270,7 +270,7 @@ const EnergyMeter = () => {
                       value={formData.amount}
                       onChange={handleChange}
                       placeholder="Minimum of ₦500"
-                      min={500}
+                      // min={500}
                     />
                   </div>
 
