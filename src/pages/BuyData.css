@@ -666,10 +666,6 @@
     font-size: 20px;
   }
 
-  .sidebar {
-    width: 50%;
-  }
-
   .form-group input,
   .form-group select {
     padding: 10px 14px;
@@ -683,7 +679,7 @@
 }
 
 @media (max-width: 374px) {
-    .sidebar {
+  .sidebar {
     width: 80%;
   }
 }

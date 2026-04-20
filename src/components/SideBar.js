@@ -6,6 +6,7 @@ import {
   Lightbulb,
   DollarSign,
   UserPlus,
+  Wallet,
   Settings,
   Monitor,
   LogOut,
@@ -97,12 +98,12 @@ const SideBar = ({ marketerWalletBalance }) => {
           <Monitor size={18} />
           <span>Cable Subscription</span>
         </NavLink>
-        {/* {safeRole !== "marketer" && (
-          <NavLink to="/funding" className="nav-item">
-            <Wallet size={20} />
-            <span>Fund Wallet</span>
-          </NavLink>
-        )} */}
+
+        <NavLink to="/funding" className="nav-item">
+          <Wallet size={20} />
+          <span>Fund Wallet</span>
+        </NavLink>
+
         <NavLink className="nav-item" to="/prices">
           <DollarSign size={20} />
           <span>Pricing</span>

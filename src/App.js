@@ -11,7 +11,6 @@ import Register from "./pages/Register";
 import ProtectedRoutes from "./components/ProtectedRoutes";
 import MarketerRoutes from "./components/MarketerRoutes";
 import Confirmation from "./pages/Confirmation";
-import PaymentForm from "./pages/PaymentForm";
 import VerifyFunding from "./components/VerifyFunding";
 import BuyData from "./pages/BuyData";
 import BuyAirtime from "./pages/BuyAirtime";
@@ -30,6 +29,7 @@ import MarketerDashboard from "./pages/MarketerDashboard";
 import UserList from "./pages/UserList";
 import UserDetail from "./pages/UserDetail";
 import Pricing from "./pages/Pricing";
+import VirtualAccount from "./pages/VirtualAccount";
 
 import "./App.css";
 
@@ -59,7 +59,7 @@ function App() {
                   {/* Protected Routes */}
                   <Route element={<ProtectedRoutes />}>
                     <Route path="/dashboard" element={<Dashboard />} />
-                    <Route path="/funding" element={<PaymentForm />} />
+                    <Route path="/funding" element={<VirtualAccount />} />
                     <Route path="/funding/verify" element={<VerifyFunding />} />
                     <Route path="/buy-data" element={<BuyData />} />
                     <Route path="/buy-airtime" element={<BuyAirtime />} />
