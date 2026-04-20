@@ -232,114 +232,39 @@ const Dashboard = () => {
               />
             </a>
 
-            <button
+            {/* <button
               className="generate-vfb-btn"
               // onClick={handleGenerateVirtualAccount}
             >
               Generate Virtual Account
               <br />
               to fund your wallet
-            </button>
+            </button> */}
           </div>
-
           {user.role === "user" && (
-            <div className="dashboard-hero">
-              <div className="hero-content">
-                {/* Heading */}
-                <h1 className="hero-title">
-                  Ready to
-                  <span className="gradient-text">Unlock More Profits?</span>
-                </h1>
-
-                {/* Description */}
-                {/* <p className="hero-description">
-                  Upgrade to Reseller status and enjoy exclusive discounts,
-                  priority support, and higher commission rates. Start earning
-                  more on every transaction today!
-                </p> */}
-
-                {/* Features */}
-                <div className="hero-features">
-                  {/* <div className="feature-item">
-                    <svg fill="currentColor" viewBox="0 0 20 20">
-                      <path
-                        fillRule="evenodd"
-                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                        clipRule="evenodd"
-                      />
-                    </svg>
-                    <span>Up to 30% Higher Discounts</span>
-                  </div> */}
-                  {/* <div className="feature-item">
-                    <svg fill="currentColor" viewBox="0 0 20 20">
-                      <path
-                        fillRule="evenodd"
-                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                        clipRule="evenodd"
-                      />
-                    </svg>
-                    <span>Priority 24/7 Support</span>
-                  </div> */}
-                  {/* <div className="feature-item">
-                    <svg fill="currentColor" viewBox="0 0 20 20">
-                      <path
-                        fillRule="evenodd"
-                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                        clipRule="evenodd"
-                      />
-                    </svg>
-                    <span>Exclusive Reseller Dashboard</span>
-                  </div> */}
-                </div>
-
-                {/* CTA Button */}
-                <div className="hero-cta">
-                  <button className="cta-button" onClick={handleUpgradeClick}>
-                    <span className="button-content">
-                      <svg
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth="2"
-                          d="M13 10V3L4 14h7v7l9-11h-7z"
-                        />
-                      </svg>
-                      Upgrade to Reseller Now
-                    </span>
-                    {/* <span className="button-shine"></span> */}
-                    <p className="cta-subtext">
-                      Only ₦1,000 one-time fee • Instant activation
-                    </p>
-                  </button>
-                  {/* <p className="cta-subtext">
-                    Only ₦1,000 one-time fee • Instant activation
-                  </p> */}
-                </div>
-              </div>
-
-              {/* Illustration/Icon Side */}
-              <div className="hero-illustration">
-                <div className="illustration-circle circle-1"></div>
-                <div className="illustration-circle circle-2"></div>
-                <div className="illustration-circle circle-3"></div>
-                <div className="illustration-icon">
+            <div className="hero-cta">
+              <button className="cta-button" onClick={handleUpgradeClick}>
+                <span className="button-content">
                   <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path
                       strokeLinecap="round"
                       strokeLinejoin="round"
-                      strokeWidth="1.5"
-                      d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                      strokeWidth="2"
+                      d="M13 10V3L4 14h7v7l9-11h-7z"
                     />
                   </svg>
-                </div>
-              </div>
+                  Upgrade to Reseller Now
+                </span>
+                {/* <span className="button-shine"></span> */}
+                <p className="cta-subtext">
+                  Only ₦1,000 one-time fee • Instant activation
+                </p>
+              </button>
+              {/* <p className="cta-subtext">
+                    Only ₦1,000 one-time fee • Instant activation
+                  </p> */}
             </div>
           )}
-
           <div className="quick-actions-grid">
             {quickActions.map(
               (action, index) =>
@@ -361,7 +286,6 @@ const Dashboard = () => {
                 ),
             )}
           </div>
-
           <div className="balance-cards-grid">
             {balanceCards.map((card, index) => (
               <div key={index} className="balance-card">
@@ -419,7 +343,6 @@ const Dashboard = () => {
               </div>
             ))}
           </div>
-
           <ServiceTable
             dataPlans={dataPlans}
             role={user.role}

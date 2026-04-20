@@ -38,10 +38,11 @@
 
 /* ── Table Head ── */
 .services-table thead {
-  background: #1a3a2a;
+  background: #091262;
 }
 
 .services-table thead tr th {
+  background: #091262;
   padding: 1rem 1.25rem;
   text-align: center;
   font-size: 0.875rem;
@@ -58,7 +59,6 @@
   font-size: 1.1rem !important;
   font-weight: 800 !important;
   padding: 1.25rem !important;
-  background: #0f2318 !important;
   color: #c9a84c !important;
   position: relative;
   overflow: hidden;
@@ -126,7 +126,7 @@
 }
 
 /* ── Zebra Striping ── */
-.services-table tbody tr:nth-child(even) {
+/* .services-table tbody tr:nth-child(even) {
   background-color: #fafcfa;
 }
 
@@ -136,7 +136,7 @@
 
 .services-table tbody tr:nth-child(odd) {
   background: #ffffff;
-}
+} */
 
 /* ── Price Highlight on Hover ── */
 .services-table tbody td strong {

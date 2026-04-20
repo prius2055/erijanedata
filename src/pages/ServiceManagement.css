@@ -197,7 +197,7 @@
 }
 
 .services-table thead {
-  background: #374151;
+  /* background: #374151; */
   border-bottom: 2px solid #e5e7eb;
   text-align: center;
 }

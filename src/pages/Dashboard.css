@@ -359,7 +359,7 @@ body {
    DASHBOARD HERO
 ════════════════════════════════ */
 .dashboard-hero {
-  background: var(--navy);
+  /* background: var(--navy); */
   border-radius: var(--r-xl);
   padding: 3.25rem;
   margin-bottom: 2.25rem;
@@ -490,8 +490,8 @@ body {
 }
 
 .cta-button {
-  background: var(--gold);
-  color: var(--navy);
+  background: var(--navy);
+  color: var(--gold);
   border: none;
   padding: 1.125rem 2.5rem;
   border-radius: var(--r-md);
@@ -503,6 +503,7 @@ body {
   box-shadow: var(--shadow-gold);
   transition: all 0.3s ease;
   width: fit-content;
+  margin-bottom: 0.5rem;
 }
 
 .button-content {
