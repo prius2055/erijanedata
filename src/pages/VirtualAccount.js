@@ -23,8 +23,7 @@ const VirtualAccount = () => {
 
       if (result.success) {
         setSuccess("Virtual account generated successfully");
-        console.log(result.virtualAccounts);
-        setAccount(result?.virtualAccounts?.[0] || null); // 👈 use response directly
+        setAccount(result.virtualAccounts?.[0] || null);
       } else {
         setError(result.message || "Failed to get virtual account.");
       }
@@ -33,9 +32,7 @@ const VirtualAccount = () => {
     };
 
     fund();
-  }, []);
-
-  const balance = account ? account.balance : 0;
+  }, [fundWallet]); // ✅ no warning, no loop
 
   return (
     <div className="funding-container">
@@ -49,6 +46,7 @@ const VirtualAccount = () => {
 
           <div className="fund-wallet-card">
             {error && <div className="alert alert-error">{error}</div>}
+            {loading && <div className="alert alert-info">Loading...</div>}
 
             {success && <div className="alert alert-success">{success}</div>}
             {account ? (

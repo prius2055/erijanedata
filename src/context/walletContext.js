@@ -76,7 +76,39 @@ export const WalletProvider = ({ children }) => {
    *   await fundWallet();
    *   // then render virtualAccounts to show user where to transfer
    * ───────────────────────────────────────────────────────── */
-  const fundWallet = async () => {
+  // const fundWallet = async () => {
+  //   setAccountsLoading(true);
+  //   setError(null);
+
+  //   try {
+  //     const res = await fetch(`${BASE_URL}/wallet/fund`, {
+  //       method: "POST",
+  //       headers: getHeaders(),
+  //     });
+
+  //     const data = await res.json();
+
+  //     if (!res.ok || data.status !== "success") {
+  //       throw new Error(data.message || "Failed to get virtual account.");
+  //     }
+
+  //     // ✅ Save virtual accounts to state — show these to the user
+  //     setVirtualAccounts(data.data.virtualAccounts);
+
+  //     return {
+  //       success: true,
+  //       virtualAccounts: data.data.virtualAccounts,
+  //     };
+  //   } catch (error) {
+  //     console.error("fundWallet error:", error.message);
+  //     setError(error.message);
+  //     return { success: false, message: error.message };
+  //   } finally {
+  //     setAccountsLoading(false);
+  //   }
+  // };
+
+  const fundWallet = useCallback(async () => {
     setAccountsLoading(true);
     setError(null);
 
@@ -92,7 +124,6 @@ export const WalletProvider = ({ children }) => {
         throw new Error(data.message || "Failed to get virtual account.");
       }
 
-      // ✅ Save virtual accounts to state — show these to the user
       setVirtualAccounts(data.data.virtualAccounts);
 
       return {
@@ -106,7 +137,7 @@ export const WalletProvider = ({ children }) => {
     } finally {
       setAccountsLoading(false);
     }
-  };
+  }, []); // 👈 dependencies
 
   const verifyWalletFunding = async () => {
     await refreshWallet(); // just refresh — balance comparison handled in component
