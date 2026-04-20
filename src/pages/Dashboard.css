@@ -1246,6 +1246,13 @@ body {
   .mobile-menu-toggle {
     display: block;
   }
+
+  .fund-wallet-btn {
+    top: 93px;
+    right: 15px;
+    padding: 11px 20px;
+    font-size: 15px;
+  }
   .top-header {
     padding: 0 22px;
   }
@@ -1370,12 +1377,7 @@ body {
   .sidebar {
     width: 100%;
   }
-  .fund-wallet-btn {
-    top: 65px;
-    right: 15px;
-    padding: 11px 20px;
-    font-size: 15px;
-  }
+
   .whatsapp-float {
     width: 56px;
     height: 56px;
