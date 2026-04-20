@@ -16,8 +16,8 @@ const Dashboard = () => {
 
   // const [amount, setAmount] = useState("");
   const [loading, setLoading] = useState(false);
-  const [setError] = useState("");
-  const [setSuccess] = useState("");
+  const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
 
   const { user } = useAuth();
 
@@ -33,8 +33,6 @@ const Dashboard = () => {
     virtualAccounts,
     refreshWallet,
   } = useWallet();
-
-  console.log('virtual accounts:', virtualAccounts);
 
   const navigate = useNavigate();
 
@@ -190,10 +188,12 @@ const Dashboard = () => {
     const result = await fundWallet();
 
     if (result.success) {
+      setSuccess("Virtual account generated successfully");
       setShowVirtualAccountModal(true);
     } else {
       setError(result.message || "Failed to get virtual account.");
     }
+
     setLoading(false);
   };
 
@@ -206,6 +206,9 @@ const Dashboard = () => {
           <button type="submit" className="fund-wallet-btn" disabled={loading}>
             {loading ? "Processing..." : "Fund Wallet"}
           </button>
+
+          {error && <p className="error-message">{error}</p>}
+          {success && <p className="success-message">{success}</p>}
         </form>
 
         <div className="content">

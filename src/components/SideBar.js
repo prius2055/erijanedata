@@ -4,7 +4,6 @@ import {
   BarChart2,
   Phone,
   Lightbulb,
-  Wallet,
   DollarSign,
   UserPlus,
   Settings,
@@ -98,12 +97,12 @@ const SideBar = ({ marketerWalletBalance }) => {
           <Monitor size={18} />
           <span>Cable Subscription</span>
         </NavLink>
-        {safeRole !== "marketer" && (
+        {/* {safeRole !== "marketer" && (
           <NavLink to="/funding" className="nav-item">
             <Wallet size={20} />
             <span>Fund Wallet</span>
           </NavLink>
-        )}
+        )} */}
         <div className="nav-item">
           <DollarSign size={20} />
           <span>Pricing</span>
