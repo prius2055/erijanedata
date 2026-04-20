@@ -44,7 +44,7 @@ const VirtualAccount = () => {
         <Header />
         <div className="wallet-container">
           <div className="wallet-header">
-            <h1>My Virtual Account</h1>
+            <h1>Account</h1>
           </div>
 
           <div className="fund-wallet-card">
