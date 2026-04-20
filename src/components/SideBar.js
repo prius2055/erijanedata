@@ -103,10 +103,10 @@ const SideBar = ({ marketerWalletBalance }) => {
             <span>Fund Wallet</span>
           </NavLink>
         )} */}
-        <div className="nav-item">
+        <NavLink className="nav-item" to="/prices">
           <DollarSign size={20} />
           <span>Pricing</span>
-        </div>
+        </NavLink>
         <div className="nav-item">
           <UserPlus size={20} />
           <span>Account</span>

@@ -5,7 +5,7 @@ import { useWallet } from "../context/walletContext";
 import SideBar from "../components/SideBar";
 import Header from "../components/Header";
 import UpgradeModal from "../components/UpgradeModal";
-import ServiceTable from "../components/ServiceTable";
+// import ServiceTable from "../components/ServiceTable";
 import VirtualAccountModal from "../components/VirtualAccountModal";
 
 import "./Dashboard.css";
@@ -26,7 +26,6 @@ const Dashboard = () => {
     balance,
     fundWallet,
     fetchDataPlans,
-    dataPlans,
     totalFunded,
     totalSpent,
     upgradeToReseller,
@@ -343,11 +342,11 @@ const Dashboard = () => {
               </div>
             ))}
           </div>
-          <ServiceTable
+          {/* <ServiceTable
             dataPlans={dataPlans}
             role={user.role}
             loading={loading}
-          />
+          /> */}
         </div>
       </div>
 

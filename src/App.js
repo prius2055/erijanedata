@@ -29,6 +29,7 @@ import Epins from "./pages/Epins";
 import MarketerDashboard from "./pages/MarketerDashboard";
 import UserList from "./pages/UserList";
 import UserDetail from "./pages/UserDetail";
+import Pricing from "./pages/Pricing";
 
 import "./App.css";
 
@@ -70,6 +71,7 @@ function App() {
                       path="/utilities/recharge-cable"
                       element={<CableTv />}
                     />
+                    <Route path="/prices" element={<Pricing />} />
                     <Route path="/success" element={<ThankYou />} />
 
                     <Route
