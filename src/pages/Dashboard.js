@@ -252,15 +252,15 @@ const Dashboard = () => {
                 </h1>
 
                 {/* Description */}
-                <p className="hero-description">
+                {/* <p className="hero-description">
                   Upgrade to Reseller status and enjoy exclusive discounts,
                   priority support, and higher commission rates. Start earning
                   more on every transaction today!
-                </p>
+                </p> */}
 
                 {/* Features */}
                 <div className="hero-features">
-                  <div className="feature-item">
+                  {/* <div className="feature-item">
                     <svg fill="currentColor" viewBox="0 0 20 20">
                       <path
                         fillRule="evenodd"
@@ -269,8 +269,8 @@ const Dashboard = () => {
                       />
                     </svg>
                     <span>Up to 30% Higher Discounts</span>
-                  </div>
-                  <div className="feature-item">
+                  </div> */}
+                  {/* <div className="feature-item">
                     <svg fill="currentColor" viewBox="0 0 20 20">
                       <path
                         fillRule="evenodd"
@@ -279,8 +279,8 @@ const Dashboard = () => {
                       />
                     </svg>
                     <span>Priority 24/7 Support</span>
-                  </div>
-                  <div className="feature-item">
+                  </div> */}
+                  {/* <div className="feature-item">
                     <svg fill="currentColor" viewBox="0 0 20 20">
                       <path
                         fillRule="evenodd"
@@ -289,7 +289,7 @@ const Dashboard = () => {
                       />
                     </svg>
                     <span>Exclusive Reseller Dashboard</span>
-                  </div>
+                  </div> */}
                 </div>
 
                 {/* CTA Button */}
