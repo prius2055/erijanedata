@@ -125,6 +125,8 @@ export const WalletProvider = ({ children }) => {
       });
       const data = await response.json();
 
+      console.log("Fetched data plans:", data);
+
       if (data.status === "success") {
         const sortedPlans = data.data.sort((a, b) => {
           const orderA = networkOrder[a.network?.toUpperCase()] ?? 99;

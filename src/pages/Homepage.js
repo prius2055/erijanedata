@@ -145,6 +145,8 @@ const Homepage = () => {
 
   const { dataPlans, fetchDataPlans } = useWallet();
 
+  console.log("Current data plans in context:", dataPlans);
+
   useEffect(() => {
     fetchDataPlans();
   }, [fetchDataPlans]);

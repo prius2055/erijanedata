@@ -168,8 +168,9 @@ const BuyData = () => {
                     <option value="">-- Select Data Type --</option>
                     <option value="SME">SME</option>
                     <option value="GIFTING">GIFTING</option>
-                    <option value="CORPORATE_GIFTING">CORPORATE GIFTING</option>
-                    <option value="DATA_SHARE">DATA SHARE</option>
+                    <option value="CORPORATE GIFTING">CORPORATE GIFTING</option>
+                    <option value="DATA SHARE">DATA SHARE</option>
+                    <option value="DATA AWOOF">DATA AWOOF</option>
                   </select>
                 </div>
                 {/* DATA PLAN */}
