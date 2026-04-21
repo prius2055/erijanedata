@@ -59,6 +59,21 @@ const BuyData = () => {
   }, [formData.dataPlan, availablePlans]);
 
   /* -----------------------------
+    Data types available for selected network
+  ------------------------------ */
+
+  const availableDataTypes = useMemo(() => {
+    if (!plansReady || !normalizedNetwork) return [];
+
+    const networkPlans = dataPlans[normalizedNetwork];
+
+    if (!Array.isArray(networkPlans)) return [];
+
+    // Extract unique plan types
+    return [...new Set(networkPlans.map((plan) => plan.planType))];
+  }, [plansReady, normalizedNetwork, dataPlans]);
+
+  /* -----------------------------
      RESET DEPENDENCIES
   ------------------------------ */
 
@@ -165,15 +180,11 @@ const BuyData = () => {
                     onChange={handleChange}
                     disabled={!formData.network || !plansReady}
                   >
-                    <option value="">-- Select Data Type --</option>
-                    <option value="SME">SME</option>
-                    <option value="GIFTING">GIFTING</option>
-                    <option value="CORPORATE GIFTING">CORPORATE GIFTING</option>
-                    <option value="DATA SHARE">DATA SHARE</option>
-                    <option value="DATA AWOOF">DATA AWOOF</option>
-                    <option value="CORPORATE GIFTING 2">
-                      CORPORATE GIFTING 2
-                    </option>
+                    {availableDataTypes.map((type) => (
+                      <option key={type} value={type}>
+                        {type}
+                      </option>
+                    ))}
                   </select>
                 </div>
                 {/* DATA PLAN */}
