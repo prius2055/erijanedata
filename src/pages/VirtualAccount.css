@@ -1,0 +1,143 @@
+/* Wallet Container */
+.funding-container {
+  display: flex;
+}
+
+.funding {
+  display: flex;
+  flex-direction: column;
+  margin-left: 280px;
+  width: calc(100% - 280px);
+}
+
+.wallet-container {
+  margin: 2rem 4rem;
+  padding: 30px 20px;
+}
+
+.wallet-header {
+  margin-bottom: 10px;
+}
+
+.wallet-header h1 {
+  font-size: 32px;
+  font-weight: 700;
+  color: rgba(10, 21, 112);
+  margin: 0;
+}
+
+/* Fund Wallet Card */
+.fund-wallet-card {
+  background: rgba(10, 21, 112, 0.85);
+  border-radius: 16px;
+  padding: 30px;
+  margin-bottom: 30px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  animation: slideIn 0.6s ease-out 0.1s both;
+}
+
+/* Alerts */
+.alert {
+  padding: 15px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  font-size: 14px;
+  animation: fadeIn 0.3s ease-out;
+}
+
+.alert-error {
+  background: #fee2e2;
+  color: #dc2626;
+  border: 1px solid #fecaca;
+}
+
+.alert-success {
+  background: #f8a01c;
+  color: #0a1570;
+  border: 1px solid #fff;
+}
+
+.account-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 1rem;
+  color: #f3f4f6;
+  padding: 20px;
+  border-radius: 12px;
+  text-align: start;
+}
+
+.account-info span {
+  margin-left: 10px;
+}
+
+.wallet-loading p {
+  font-size: 18px;
+  color: #667eea;
+  font-weight: 600;
+}
+
+/* Responsive */
+
+/* 992px and below (Tablets) */
+@media (max-width: 992px) {
+  .payment-balance-amount {
+    font-size: 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .funding {
+    margin-left: 0;
+    width: 100%;
+  }
+  .wallet-container {
+    margin: 5px 10px;
+  }
+
+  .balance-card {
+    flex-direction: column;
+    text-align: center;
+    padding: 30px 20px;
+  }
+
+  .balance-amount {
+    font-size: 36px;
+  }
+
+  .balance-icon {
+    margin-top: 20px;
+  }
+
+  .fund-wallet-card,
+  .transactions-card {
+    padding: 20px;
+  }
+
+  .transaction-item {
+    padding: 12px;
+  }
+
+  .transaction-description {
+    font-size: 14px;
+  }
+
+  .transaction-amount {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 680px) {
+}
+
+/* 576px and below (Phones) */
+@media (max-width: 576px) {
+}
+
+@media (max-width: 480px) {
+}
+
+@media (max-width: 374px) {
+}

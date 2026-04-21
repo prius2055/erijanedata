@@ -2,8 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useWallet } from "../context/walletContext";
 import SideBar from "../components/SideBar";
 import Header from "../components/Header";
-
-import "./PaymentForm.css";
+import "./VirtualAccount.css";
 
 const VirtualAccount = () => {
   const [loading, setLoading] = useState(false);
@@ -22,7 +21,7 @@ const VirtualAccount = () => {
       const result = await fundWallet();
 
       if (result.success) {
-        setSuccess("Virtual account generated successfully");
+        setSuccess("Account generated successfully");
         setAccount(result.virtualAccounts?.[0] || null);
       } else {
         setError(result.message || "Failed to get virtual account.");
@@ -33,6 +32,25 @@ const VirtualAccount = () => {
 
     fund();
   }, [fundWallet]); // ✅ no warning, no loop
+
+  if (loading) {
+    return (
+      <div className="funding-container">
+        <SideBar />
+        <div className="funding">
+          <Header />
+          <div className="wallet-container">
+            <div className="wallet-header">
+              <h1>Account</h1>
+            </div>
+            <div className="fund-wallet-card">
+              <div className="alert alert-info">Loading...</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="funding-container">
@@ -46,19 +64,26 @@ const VirtualAccount = () => {
 
           <div className="fund-wallet-card">
             {error && <div className="alert alert-error">{error}</div>}
-            {loading && <div className="alert alert-info">Loading...</div>}
-
             {success && <div className="alert alert-success">{success}</div>}
             {account ? (
               <div className="account-info">
                 <p>
-                  Account Number: <strong>{account.accountNumber}</strong>
+                  Account Number:
+                  <span>
+                    <strong>{account.accountNumber}</strong>
+                  </span>
                 </p>
                 <p>
-                  Bank: <strong>{account.bankName}</strong>
+                  Account Name:
+                  <span>
+                    <strong>{account.accountName}</strong>
+                  </span>
                 </p>
                 <p>
-                  Account Name: <strong>{account.accountName}</strong>
+                  Bank:
+                  <span>
+                    <strong>{account.bankName}</strong>
+                  </span>
                 </p>
               </div>
             ) : (
