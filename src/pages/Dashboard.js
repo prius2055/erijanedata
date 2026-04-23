@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, NavLink } from "react-router-dom";
 import { useAuth } from "../context/authContext";
 import { useWallet } from "../context/walletContext";
 import SideBar from "../components/SideBar";
@@ -219,7 +219,7 @@ const Dashboard = () => {
               </span>
             </div>
 
-            <a
+            {/* <a
               href="https://play.google.com/store/apps/details?id=your.app.id"
               target="_blank"
               rel="noopener noreferrer"
@@ -229,7 +229,11 @@ const Dashboard = () => {
                 src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg"
                 alt="Get it on Google Play"
               />
-            </a>
+            </a> */}
+
+            <NavLink className="generate-vfb-btn" to="/buy-data">
+              <span>Buy Data</span>
+            </NavLink>
 
             {/* <button
               className="generate-vfb-btn"

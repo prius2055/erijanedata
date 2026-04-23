@@ -47,6 +47,8 @@ const ServiceTable = ({ dataPlans, role, loading }) => {
     );
   }
 
+  console.log("data plans in service table", dataPlans);
+
   // Main Content
   return (
     <div className="services-table-container">
@@ -71,12 +73,13 @@ const ServiceTable = ({ dataPlans, role, loading }) => {
                 <th>Validity</th>
 
                 {/* marketer OR RESELLER ONLY */}
-                {isMarketer && <th>Cost Price</th>}
+                {isMarketer && <th>Plan Type</th>}
+                {/* {isMarketer && <th>Provider Price</th>} */}
                 {(isMarketer || isReseller) && <th>Reseller Price</th>}
                 {isUser ? <th>Price</th> : <th>Selling Price</th>}
 
                 {/* marketer OR RESELLER ONLY */}
-                {(isMarketer || isReseller) && <th>Profit</th>}
+                {/* {(isMarketer || isReseller) && <th>Profit</th>} */}
 
                 <th>Status</th>
                 {isMarketer && pathname.endsWith("/marketer/data") && (
@@ -88,11 +91,11 @@ const ServiceTable = ({ dataPlans, role, loading }) => {
             {/* Table Body */}
             <tbody>
               {services.map((service) => {
-                const profit = isMarketer
-                  ? service.sellingPrice - service.providerPrice
-                  : isReseller
-                    ? service.sellingPrice - service.resellerPrice
-                    : 0;
+                // const profit = isMarketer
+                //   ? service.sellingPrice - service.providerPrice
+                //   : isReseller
+                //     ? service.sellingPrice - service.resellerPrice
+                //     : 0;
 
                 return (
                   <tr key={service._id}>
@@ -102,12 +105,16 @@ const ServiceTable = ({ dataPlans, role, loading }) => {
                     {/* Validity */}
                     <td className="validity">{service.validity}</td>
 
-                    {/* Provider  Price (marketer ONLY) */}
+                    {/* Plan Type (marketer ONLY) */}
                     {isMarketer && (
+                      <td className="reseller-price">{service.planType}</td>
+                    )}
+                    {/* Provider  Price (marketer ONLY) */}
+                    {/* {isMarketer && (
                       <td className="reseller-price">
                         {formatMoney(service.providerPrice)}
                       </td>
-                    )}
+                    )} */}
                     {(isMarketer || isReseller) && (
                       <td className="reseller-price">
                         {formatMoney(service.resellerPrice)}
@@ -121,9 +128,9 @@ const ServiceTable = ({ dataPlans, role, loading }) => {
                     </td>
 
                     {/* Profit (marketer AND RESELLER ONLY) */}
-                    {(isMarketer || isReseller) && (
+                    {/* {(isMarketer || isReseller) && (
                       <td className="profit">{formatMoney(profit)}</td>
-                    )}
+                    )} */}
 
                     {/* Status */}
                     <td className="status-cell">

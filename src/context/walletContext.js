@@ -47,7 +47,6 @@ export const WalletProvider = ({ children }) => {
       const data = await response.json();
 
       if (data.status === "success") {
-        console.log("Wallet data refreshed:", data);
         const wallet = data.data.wallet;
         setBalance(wallet.balance);
         setTotalFunded(wallet.totalFunded);
@@ -155,8 +154,6 @@ export const WalletProvider = ({ children }) => {
         headers: getHeaders(false),
       });
       const data = await response.json();
-
-      console.log("Fetched data plans:", data);
 
       if (data.status === "success") {
         const sortedPlans = data.data.sort((a, b) => {

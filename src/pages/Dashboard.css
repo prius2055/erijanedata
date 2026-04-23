@@ -741,6 +741,7 @@ body {
   overflow: hidden;
   white-space: nowrap;
   flex-shrink: 0;
+  text-decoration: none;
 }
 
 .generate-vfb-btn::before {
@@ -1099,9 +1100,9 @@ body {
   font-weight: 800;
   font-size: 17px;
   position: fixed;
-  top: 6.5rem;
+  top: 1rem;
   right: 2rem;
-  z-index: 100;
+  z-index: 1000;
   text-decoration: none;
   box-shadow: var(--shadow-gold);
   transition: all 0.3s ease;
