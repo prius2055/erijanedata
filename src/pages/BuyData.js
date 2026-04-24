@@ -180,6 +180,7 @@ const BuyData = () => {
                     onChange={handleChange}
                     disabled={!formData.network || !plansReady}
                   >
+                    <option value="">-- Select Data Type --</option>
                     {availableDataTypes.map((type) => (
                       <option key={type} value={type}>
                         {type}
