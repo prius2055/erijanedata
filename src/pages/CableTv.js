@@ -173,7 +173,7 @@ const CableTv = () => {
                       onChange={handleChange}
                       required
                     >
-                      <option value="">-- Cable Name --</option>
+                      <option value="">-- Select Cable Name --</option>
                       <option value="GOTV">GOTV</option>
                       <option value="DSTV">DSTV</option>
                       <option value="STARTIMES">STARTIMES</option>
@@ -210,7 +210,7 @@ const CableTv = () => {
                       disabled={!formData.iucNumber}
                       required
                     >
-                      <option value="">---------</option>
+                      <option value="">-- Select Cable Plan --</option>
                       <option value="34">GOtv Smallie - Monthly = N1900</option>
                       <option value="16">GOtv Jinja = N3900</option>
                       <option value="35">
