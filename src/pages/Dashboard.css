@@ -39,6 +39,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  /* overflow: hidden; */
 }
 
 body {
@@ -795,6 +796,15 @@ body {
   75% {
     transform: rotate(8deg);
   }
+}
+
+.data-type-tracker {
+  /* overflow: hidden; */
+  /* width: 100%; */
+  /* max-width: 100%; */
+  /* margin: 0 auto; */
+  /* box-sizing: border-box; */
+  /* contain: layout; */
 }
 
 /* ════════════════════════════════

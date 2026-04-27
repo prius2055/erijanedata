@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import { useNavigate, NavLink } from "react-router-dom";
 import { useAuth } from "../context/authContext";
 import { useWallet } from "../context/walletContext";
@@ -31,6 +31,7 @@ const Dashboard = () => {
     balance,
     fundWallet,
     fetchDataPlans,
+    dataPlans,
     totalFunded,
     totalSpent,
     upgradeToReseller,
@@ -234,6 +235,19 @@ const Dashboard = () => {
     setLoading(false);
   };
 
+  const plansReady = dataPlans && Object.keys(dataPlans).length > 0;
+
+  const networks = useMemo(() => {
+    if (!plansReady) return [];
+
+    return Object.entries(dataPlans).map(([networkLabel, plans]) => ({
+      label: networkLabel,
+      types: [...new Set(plans.map((plan) => plan.planType).filter(Boolean))],
+    }));
+  }, [plansReady, dataPlans]);
+
+  console.log("Available Networks:", networks);
+
   return (
     <div className="dashboard-container">
       <SideBar />
@@ -283,7 +297,8 @@ const Dashboard = () => {
             </button> */}
           </div>
 
-          <DataTypeTicker />
+          <DataTypeTicker networks={networks} />
+
           {user.role === "user" && (
             <div className="hero-cta">
               <button className="cta-button" onClick={handleUpgradeClick}>

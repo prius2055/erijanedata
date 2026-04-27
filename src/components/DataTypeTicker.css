@@ -21,10 +21,14 @@
 
 .ticker-wrap {
   overflow: hidden;
-  border: 0.5px solid #e0e0e0;
+  width: 100%;
+  /* max-width: 100%; */
+  box-sizing: border-box;
+  border: 0.5px solid #2e3785;
   border-radius: 12px;
   background: #f9f9f9;
   font-family: "DM Sans", sans-serif;
+  margin-bottom: 1rem;
 }
 
 .ticker-header {
@@ -32,13 +36,13 @@
   align-items: center;
   gap: 8px;
   padding: 10px 16px 8px;
-  border-bottom: 0.5px solid #e0e0e0;
+  border-bottom: 0.5px solid #2e3785;
 }
 
 .ticker-dot {
   display: inline-block;
-  width: 7px;
-  height: 7px;
+  width: 12px;
+  height: 12px;
   border-radius: 50%;
   background: #1d9e75;
   flex-shrink: 0;
@@ -46,18 +50,22 @@
 }
 
 .ticker-header-label {
-  font-size: 11px;
-  font-weight: 500;
-  color: #888;
+  font-size: 22px;
+  font-weight: 600;
+  color: #2e3785;
   letter-spacing: 0.06em;
   text-transform: uppercase;
 }
 
 .ticker-overflow {
   overflow: hidden;
+  width: 100%;
+  position: relative;
+  height: 44px; /* set to match your content height */
 }
 
 .ticker-track {
+  position: absolute;
   display: inline-flex;
   white-space: nowrap;
   animation: ticker-scroll linear infinite;
@@ -78,45 +86,46 @@
   padding: 10px 0;
 }
 
-.ticker-net-badge {
-  display: inline-flex;
-  align-items: center;
-  font-size: 12px;
-  font-weight: 600;
-  padding: 3px 10px;
-  border-radius: 20px;
-  margin-right: 8px;
-  flex-shrink: 0;
-}
-
 /* Per-network badge colors */
 .ticker-net-badge--mtn {
-  background: #faeeda;
-  color: #633806;
+  background: #e9cea0;
+  background-color: #4b2903;
+  color: #fff;
 }
 .ticker-net-badge--glo {
-  background: #eaf3de;
-  color: #27500a;
+  background: #e3f0d3;
+  background-color: #204903;
+  color: #fff;
 }
 .ticker-net-badge--airtel {
-  background: #fcebeb;
-  color: #791f1f;
+  background: #f0c9c9;
+  background-color: #791313;
+  color: #fff;
 }
 .ticker-net-badge--9mobile {
   background: #e1f5ee;
-  color: #085041;
+  background-color: #085041;
+  color: #fff;
 }
 .ticker-net-badge--default {
   background: #e8e8e8;
   color: #333;
 }
 
+.ticker-net-badge {
+  font-size: 16px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 10px;
+  margin-right: 8px;
+  flex-shrink: 0;
+}
+
 .ticker-pill {
-  display: inline-flex;
-  align-items: center;
-  font-size: 12px;
+  font-size: 16px;
+  font-weight: 600;
   color: #333;
-  padding: 3px 10px;
+  padding: 4px 10px;
   border-radius: 20px;
   background: #fff;
   border: 0.5px solid #e0e0e0;
@@ -127,8 +136,8 @@
 .ticker-divider {
   display: inline-block;
   width: 1px;
-  height: 18px;
-  background: #e0e0e0;
+  height: 22px;
+  background: #0a1570;
   margin: 0 16px;
   flex-shrink: 0;
 }

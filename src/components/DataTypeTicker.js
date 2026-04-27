@@ -55,7 +55,7 @@ export default function DataTypeTicker({ networks = [] }) {
       {/* Header */}
       <div className="ticker-header">
         <span className="ticker-dot" />
-        <span className="ticker-header-label">Top Available Data Plans</span>
+        <span className="ticker-header-label">Top Available Data Packages</span>
       </div>
 
       {/* Scrolling Track */}
