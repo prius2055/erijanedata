@@ -7,17 +7,22 @@ import Header from "../components/Header";
 import UpgradeModal from "../components/UpgradeModal";
 // import ServiceTable from "../components/ServiceTable";
 import VirtualAccountModal from "../components/VirtualAccountModal";
+import DataTypeTicker from "../components/DataTypeTicker";
 
 import "./Dashboard.css";
 
 const Dashboard = () => {
   const [showUpgradeModal, setShowUpgradeModal] = useState(false);
   const [showVirtualAccountModal, setShowVirtualAccountModal] = useState(false);
+  const [account, setAccount] = useState(false);
 
   // const [amount, setAmount] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
-  const [success, setSuccess] = useState("");
+  const [success, setSuccess] = useState({
+    onloadSuccess: "",
+    onbtnSuccess: "",
+  });
 
   const { user } = useAuth();
 
@@ -178,16 +183,49 @@ const Dashboard = () => {
     setShowVirtualAccountModal(false);
   };
 
+  useEffect(() => {
+    const fund = async () => {
+      setError("");
+      setSuccess((msg) => ({
+        ...msg,
+        onloadSuccess: "",
+      }));
+      setLoading(true);
+
+      const result = await fundWallet();
+
+      if (result.success) {
+        setSuccess((msg) => ({
+          ...msg,
+          onloadSuccess: "Account generated successfully",
+        }));
+        setAccount(result.virtualAccounts?.[0] || null);
+      } else {
+        setError(result.message || "Failed to get virtual account.");
+      }
+
+      setLoading(false);
+    };
+
+    fund();
+  }, [fundWallet]); // ✅ no warning, no loop
+
   const handleFundWallet = async (e) => {
     e.preventDefault();
     setError("");
-    setSuccess("");
+    setSuccess((msg) => ({
+      ...msg,
+      onbtnSuccess: "",
+    }));
     setLoading(true);
 
     const result = await fundWallet();
 
     if (result.success) {
-      setSuccess("Virtual account generated successfully");
+      setSuccess((msg) => ({
+        ...msg,
+        onbtnSuccess: "Account generated successfully",
+      }));
       setShowVirtualAccountModal(true);
     } else {
       setError(result.message || "Failed to get virtual account.");
@@ -207,7 +245,7 @@ const Dashboard = () => {
           </button>
 
           {error && <p className="error-message">{error}</p>}
-          {success && <p className="success-message">{success}</p>}
+          {success && <p className="success-message">{success.onbtnSuccess}</p>}
         </form>
 
         <div className="content">
@@ -244,6 +282,8 @@ const Dashboard = () => {
               to fund your wallet
             </button> */}
           </div>
+
+          <DataTypeTicker />
           {user.role === "user" && (
             <div className="hero-cta">
               <button className="cta-button" onClick={handleUpgradeClick}>
@@ -268,6 +308,40 @@ const Dashboard = () => {
                   </p> */}
             </div>
           )}
+          <div className="dashboard-account-container">
+            <div className="fund-wallet-card">
+              {error && <div className="alert alert-error">{error}</div>}
+              {success.onloadSuccess && (
+                <div className="alert alert-success">
+                  {success.onloadSuccess}
+                </div>
+              )}
+              {account ? (
+                <div className="account-info">
+                  <p>
+                    Account Number:
+                    <span>
+                      <strong>{account.accountNumber}</strong>
+                    </span>
+                  </p>
+                  <p>
+                    Account Name:
+                    <span>
+                      <strong>{account.accountName}</strong>
+                    </span>
+                  </p>
+                  <p>
+                    Bank:
+                    <span>
+                      <strong>{account.bankName}</strong>
+                    </span>
+                  </p>
+                </div>
+              ) : (
+                <p>No virtual account found.</p>
+              )}
+            </div>
+          </div>
           <div className="quick-actions-grid">
             {quickActions.map(
               (action, index) =>
@@ -289,6 +363,7 @@ const Dashboard = () => {
                 ),
             )}
           </div>
+
           <div className="balance-cards-grid">
             {balanceCards.map((card, index) => (
               <div key={index} className="balance-card">

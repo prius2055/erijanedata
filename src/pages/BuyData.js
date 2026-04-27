@@ -171,7 +171,7 @@ const BuyData = () => {
                     <option value="9MOBILE">9MOBILE</option>
                   </select>
                 </div>
-                {/* DATA TYPE */}
+                {/* DATA TYPE
                 <div className="form-group">
                   <label>Data Type *</label>
                   <select
@@ -186,6 +186,38 @@ const BuyData = () => {
                         {type}
                       </option>
                     ))}
+                  </select>
+                </div> */}
+
+                {/* DATA TYPE */}
+                <div className="form-group">
+                  <label>Data Type *</label>
+                  <select
+                    name="dataType"
+                    value={formData.dataType}
+                    onChange={handleChange}
+                    disabled={!formData.network || !plansReady}
+                  >
+                    <option value="">-- Select Data Type --</option>
+                    {[...availableDataTypes]
+                      .sort((a, b) => {
+                        const order = [
+                          "DATA SHARE",
+                          "GIFTING",
+                          "DATA AWOOF",
+                          "SME",
+                        ];
+                        const indexA = order.indexOf(a);
+                        const indexB = order.indexOf(b);
+                        const rankA = indexA === -1 ? Infinity : indexA;
+                        const rankB = indexB === -1 ? Infinity : indexB;
+                        return rankA - rankB;
+                      })
+                      .map((type) => (
+                        <option key={type} value={type}>
+                          {type}
+                        </option>
+                      ))}
                   </select>
                 </div>
                 {/* DATA PLAN */}

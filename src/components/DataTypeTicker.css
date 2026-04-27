@@ -1,0 +1,134 @@
+/* DataTypeTicker.css */
+
+@keyframes ticker-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes ticker-pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.3;
+  }
+}
+
+.ticker-wrap {
+  overflow: hidden;
+  border: 0.5px solid #e0e0e0;
+  border-radius: 12px;
+  background: #f9f9f9;
+  font-family: "DM Sans", sans-serif;
+}
+
+.ticker-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px 8px;
+  border-bottom: 0.5px solid #e0e0e0;
+}
+
+.ticker-dot {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #1d9e75;
+  flex-shrink: 0;
+  animation: ticker-pulse 1.5s ease-in-out infinite;
+}
+
+.ticker-header-label {
+  font-size: 11px;
+  font-weight: 500;
+  color: #888;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.ticker-overflow {
+  overflow: hidden;
+}
+
+.ticker-track {
+  display: inline-flex;
+  white-space: nowrap;
+  animation: ticker-scroll linear infinite;
+}
+
+.ticker-track.paused {
+  animation-play-state: paused;
+}
+
+.ticker-copy {
+  display: inline-flex;
+  align-items: center;
+}
+
+.ticker-segment {
+  display: inline-flex;
+  align-items: center;
+  padding: 10px 0;
+}
+
+.ticker-net-badge {
+  display: inline-flex;
+  align-items: center;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 20px;
+  margin-right: 8px;
+  flex-shrink: 0;
+}
+
+/* Per-network badge colors */
+.ticker-net-badge--mtn {
+  background: #faeeda;
+  color: #633806;
+}
+.ticker-net-badge--glo {
+  background: #eaf3de;
+  color: #27500a;
+}
+.ticker-net-badge--airtel {
+  background: #fcebeb;
+  color: #791f1f;
+}
+.ticker-net-badge--9mobile {
+  background: #e1f5ee;
+  color: #085041;
+}
+.ticker-net-badge--default {
+  background: #e8e8e8;
+  color: #333;
+}
+
+.ticker-pill {
+  display: inline-flex;
+  align-items: center;
+  font-size: 12px;
+  color: #333;
+  padding: 3px 10px;
+  border-radius: 20px;
+  background: #fff;
+  border: 0.5px solid #e0e0e0;
+  margin-right: 6px;
+  flex-shrink: 0;
+}
+
+.ticker-divider {
+  display: inline-block;
+  width: 1px;
+  height: 18px;
+  background: #e0e0e0;
+  margin: 0 16px;
+  flex-shrink: 0;
+}
