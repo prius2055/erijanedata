@@ -23,8 +23,6 @@ export const WalletProvider = ({ children }) => {
   const [virtualAccounts, setVirtualAccounts] = useState([]);
   const [accountsLoading, setAccountsLoading] = useState(false);
 
-  const token = localStorage.getItem("token");
-
   const networkOrder = useMemo(
     () => ({
       MTN: 1,
@@ -181,8 +179,6 @@ export const WalletProvider = ({ children }) => {
    * BUY DATA
    * ───────────────────────────────────────────────────────── */
   const buyData = async (payload) => {
-    if (!token) return { success: false, message: "User not authenticated" };
-
     setLoading(true);
     setError(null);
 
@@ -215,8 +211,6 @@ export const WalletProvider = ({ children }) => {
    * BUY AIRTIME
    * ───────────────────────────────────────────────────────── */
   const buyAirtime = async (payload) => {
-    if (!token) return { success: false, message: "User not authenticated" };
-
     setLoading(true);
     setError(null);
 
@@ -270,7 +264,6 @@ export const WalletProvider = ({ children }) => {
   };
 
   const meterRecharge = async (payload) => {
-    if (!token) return { success: false, message: "User not authenticated" };
     setLoading(true);
     setError(null);
     try {
@@ -297,7 +290,6 @@ export const WalletProvider = ({ children }) => {
    * CABLE VALIDATION & RECHARGE
    * ───────────────────────────────────────────────────────── */
   const cableValidation = async (payload) => {
-    if (!token) return { success: false, message: "User not authenticated" };
     setLoading(true);
     setError(null);
     try {
@@ -319,7 +311,6 @@ export const WalletProvider = ({ children }) => {
   };
 
   const cableRecharge = async (payload) => {
-    if (!token) return { success: false, message: "User not authenticated" };
     setLoading(true);
     setError(null);
     try {
@@ -349,8 +340,6 @@ export const WalletProvider = ({ children }) => {
     setLoading(true);
     setError(null);
     try {
-      if (!token) throw new Error("Authentication required");
-
       const response = await fetch(`${BASE_URL}/wallet/upgrade`, {
         method: "POST",
         headers: getHeaders(),
@@ -376,9 +365,35 @@ export const WalletProvider = ({ children }) => {
     }
   };
 
+  const setPin = async (payload) => {
+    setLoading(true);
+    setError(null);
+
+    try {
+      const res = await fetch(`${BASE_URL}/vtu/set-pin`, {
+        method: "POST",
+        headers: getHeaders(),
+        body: JSON.stringify(payload),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok || data.status !== "success") {
+        throw new Error(data.message || "Unable to set pin");
+      }
+
+      return { success: true, data: data.data };
+    } catch (error) {
+      setError(error.message);
+      return { success: false, message: error.message };
+    } finally {
+      setLoading(false);
+    }
+  };
+
   useEffect(() => {
     refreshWallet();
-  }, [token, refreshWallet]);
+  }, [refreshWallet]);
 
   return (
     <WalletContext.Provider
@@ -409,6 +424,7 @@ export const WalletProvider = ({ children }) => {
         cableValidation,
         cableRecharge,
         upgradeToReseller,
+        setPin,
       }}
     >
       {children}

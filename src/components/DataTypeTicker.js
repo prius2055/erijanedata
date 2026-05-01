@@ -48,8 +48,6 @@ export default function DataTypeTicker({ networks = [] }) {
     }
   }, [networks]);
 
-  console.log(networks);
-
   return (
     <div className="ticker-wrap">
       {/* Header */}

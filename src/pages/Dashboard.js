@@ -57,7 +57,6 @@ const Dashboard = () => {
   const handleUpgradeClick = () => {
     setShowUpgradeModal(true);
 
-    console.log("clicked to upgrade");
     // Prevent body scroll
     document.body.classList.add("modal-open");
   };
@@ -71,14 +70,13 @@ const Dashboard = () => {
   const handleConfirmUpgrade = async () => {
     try {
       const result = await upgradeToReseller();
-      console.log(result);
+
       if (result.success) {
         // Show success message
         alert("Successfully upgraded to Reseller!");
         handleCloseModal();
       }
     } catch (error) {
-      console.error("Upgrade failed:", error);
       alert(error.message || "Upgrade failed. Please try again.");
     }
   };
@@ -245,8 +243,6 @@ const Dashboard = () => {
       types: [...new Set(plans.map((plan) => plan.planType).filter(Boolean))],
     }));
   }, [plansReady, dataPlans]);
-
-  console.log("Available Networks:", networks);
 
   return (
     <div className="dashboard-container">

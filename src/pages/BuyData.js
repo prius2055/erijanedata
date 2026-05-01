@@ -3,6 +3,7 @@ import { useWallet } from "../context/walletContext";
 import { useNavigate } from "react-router-dom";
 import SideBar from "../components/SideBar";
 import Header from "../components/Header";
+import { Eye, EyeOff } from "lucide-react";
 import "./BuyData.css";
 
 const BuyData = () => {
@@ -25,11 +26,13 @@ const BuyData = () => {
     dataType: "",
     dataPlan: "",
     mobileNumber: "",
+    transactionPin: "",
     bypassValidator: false,
   });
 
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState("");
+  const [showPin, setShowPin] = useState(false);
 
   /* -----------------------------
      DERIVED DATA (SAFE)
@@ -110,11 +113,19 @@ const BuyData = () => {
       return;
     }
 
+    if (!formData.transactionPin) {
+      setError(
+        "Please enter your transaction pin. If you don't have a pin, Kindly set one before continuing with the transaction",
+      );
+      return;
+    }
+
     const payload = {
       network: Number(selectedPlan.providerNetworkId),
       plan: Number(selectedPlan.providerPlanId),
       mobile_number: formData.mobileNumber,
       amount: selectedPlan.sellingPrice,
+      pin: formData.transactionPin,
       Ported_number: true,
     };
 
@@ -256,12 +267,36 @@ const BuyData = () => {
                     value={formData.mobileNumber}
                     onChange={handleChange}
                     maxLength="11"
+                    placeholder="Enter your mobile number"
                   />
                 </div>
+
                 {/* AMOUNT */}
                 <div className="form-group">
                   <label>Amount (₦)</label>
                   <input readOnly value={selectedPlan?.sellingPrice || ""} />
+                </div>
+
+                {/* TRANSACTION PIN */}
+                <div className="form-group">
+                  <label>Transaction Pin *</label>
+                  <input
+                    type={showPin ? "text" : "password"}
+                    name="transactionPin"
+                    value={formData.transactionPin}
+                    onChange={handleChange}
+                    maxLength="4"
+                    placeholder="Enter your 4-digit transaction pin"
+                  />
+                  <button
+                    type="button"
+                    className="password-toggle"
+                    onClick={() => setShowPin((prev) => !prev)}
+                    aria-label={showPin ? "Hide pin" : "Show pin"}
+                    tabIndex={-1}
+                  >
+                    {showPin ? <Eye /> : <EyeOff />}
+                  </button>
                 </div>
                 <button
                   type="submit"

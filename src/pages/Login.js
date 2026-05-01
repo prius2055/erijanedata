@@ -131,7 +131,7 @@ const Login = () => {
                 value={password}
                 onChange={(e) => {
                   setPassword(e.target.value);
-                  if (error) setError(""); // clear error on change
+                  if (error) setError("");
                 }}
                 placeholder="Enter your password"
                 autoComplete="current-password"

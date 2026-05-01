@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import SideBar from "../components/SideBar";
 import Header from "../components/Header";
 import { useWallet } from "../context/walletContext";
+import { Eye, EyeOff } from "lucide-react";
 
 import "./BuyData.css";
 
@@ -23,10 +24,12 @@ const CableTv = () => {
     customerPhone: "",
     amount: "",
     customerName: "",
+    transactionPin: "",
   });
 
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+  const [showPin, setShowPin] = useState(false);
 
   const { cableValidation, cableRecharge } = useWallet();
 
@@ -73,13 +76,9 @@ const CableTv = () => {
       iucNumber: formData.iucNumber,
     };
 
-    console.log(payload);
-
     setLoading(true);
 
     const result = await cableValidation(payload);
-
-    console.log(result);
 
     if (result.status) {
       setLoading(false);
@@ -98,13 +97,12 @@ const CableTv = () => {
     setError("");
 
     // Validation
-    if (
-      !formData.cableName ||
-      !formData.iucNumber ||
-      !formData.cablePlan ||
-      !formData.amount
-    ) {
+    if (!formData.cableName || !formData.iucNumber || !formData.cablePlan) {
       setError("Please a valid IUC number");
+      return;
+    }
+    if (!formData.amount || !formData.transactionPin) {
+      setError("Please enter a valid amount and/or transaction pin");
       return;
     }
 
@@ -120,15 +118,12 @@ const CableTv = () => {
       amount: Number(formData.amount),
       name: formData.customerName,
       customerNumber: formData.customerPhone,
+      pin: formData.transactionPin,
     };
-
-    console.log(payload);
 
     setLoading(true);
 
     const result = await cableRecharge(payload);
-
-    console.log(result);
 
     if (result.status) {
       setLoading(false);
@@ -140,6 +135,7 @@ const CableTv = () => {
         customerPhone: "",
         amount: "",
         customerName: "",
+        transactionPin: "",
       });
     } else {
       return;
@@ -255,6 +251,28 @@ const CableTv = () => {
                       placeholder="08012345678"
                       min={11}
                     />
+                  </div>
+
+                  {/* TRANSACTION PIN */}
+                  <div className="form-group">
+                    <label>Transaction Pin *</label>
+                    <input
+                      type={showPin ? "text" : "password"}
+                      name="transactionPin"
+                      value={formData.transactionPin}
+                      onChange={handleChange}
+                      maxLength="4"
+                      placeholder="Enter your 4-digit transaction pin"
+                    />
+                    <button
+                      type="button"
+                      className="password-toggle"
+                      onClick={() => setShowPin((prev) => !prev)}
+                      aria-label={showPin ? "Hide pin" : "Show pin"}
+                      tabIndex={-1}
+                    >
+                      {showPin ? <Eye /> : <EyeOff />}
+                    </button>
                   </div>
 
                   {/* Submit Button */}

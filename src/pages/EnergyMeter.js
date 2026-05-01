@@ -3,6 +3,7 @@ import SideBar from "../components/SideBar";
 import Header from "../components/Header";
 import { useWallet } from "../context/walletContext";
 import { capitalize } from "../utils/helperFunctions";
+import { Eye, EyeOff } from "lucide-react";
 
 import "./BuyData.css";
 
@@ -29,10 +30,12 @@ const EnergyMeter = () => {
     amount: "",
     customerName: "",
     customerAddress: "",
+    transactionPin: "",
   });
 
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+  const [showPin, setShowPin] = useState(false);
 
   const { meterValidation, meterRecharge } = useWallet();
 
@@ -69,10 +72,15 @@ const EnergyMeter = () => {
       return;
     }
 
-    // if (!formData.amount || formData.amount < 500) {
-    //   setError("Please enter a valid amount (minimum ₦500)");
-    //   return;
-    // }
+    if (!formData.amount || formData.amount < 500) {
+      setError("Please enter a valid amount (minimum ₦500)");
+      return;
+    }
+
+    if (!formData.transactionPin) {
+      setError("Please enter your transaction pin");
+      return;
+    }
 
     const payload = {
       disco_name: formData.discoName,
@@ -80,6 +88,7 @@ const EnergyMeter = () => {
       meter_number: formData.meterNumber,
       MeterType: formData.meterType,
       customer_number: formData.customerPhone,
+      pin: formData.transactionPin,
     };
 
     console.log(payload);
@@ -87,8 +96,6 @@ const EnergyMeter = () => {
     setLoading(true);
 
     const result = await meterValidation(payload);
-
-    console.log(result);
 
     if (result.status) {
       setLoading(false);
@@ -132,10 +139,10 @@ const EnergyMeter = () => {
       return;
     }
 
-    // if (!formData.amount || formData.amount < 500) {
-    //   setError("Please enter a valid amount (minimum ₦500)");
-    //   return;
-    // }
+    if (!formData.amount || formData.amount < 500) {
+      setError("Please enter a valid amount (minimum ₦500)");
+      return;
+    }
 
     const payload = {
       disco_name: DISCO_NAME_MAP[formData.discoName],
@@ -145,15 +152,12 @@ const EnergyMeter = () => {
       customer_number: formData.customerPhone,
       meter_name: formData.customerName,
       meter_address: formData.customerAddress,
+      pin: formData.transactionPin,
     };
-
-    console.log(payload);
 
     setLoading(true);
 
     const result = await meterRecharge(payload);
-
-    console.log(result);
 
     if (result.status) {
       setLoading(false);
@@ -166,6 +170,7 @@ const EnergyMeter = () => {
         amount: "",
         customerName: "",
         customerAddress: "",
+        transactionPin: "",
       });
     } else {
       setLoading(false);
@@ -288,6 +293,28 @@ const EnergyMeter = () => {
                       placeholder="08012345678"
                       min={11}
                     />
+                  </div>
+
+                  {/* TRANSACTION PIN */}
+                  <div className="form-group">
+                    <label>Transaction Pin *</label>
+                    <input
+                      type={showPin ? "text" : "password"}
+                      name="transactionPin"
+                      value={formData.transactionPin}
+                      onChange={handleChange}
+                      maxLength="4"
+                      placeholder="Enter your 4-digit transaction pin"
+                    />
+                    <button
+                      type="button"
+                      className="password-toggle"
+                      onClick={() => setShowPin((prev) => !prev)}
+                      aria-label={showPin ? "Hide pin" : "Show pin"}
+                      tabIndex={-1}
+                    >
+                      {showPin ? <Eye /> : <EyeOff />}
+                    </button>
                   </div>
 
                   {/* Submit Button */}

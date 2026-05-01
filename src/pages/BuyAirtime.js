@@ -3,6 +3,7 @@ import { useWallet } from "../context/walletContext";
 import { useNavigate } from "react-router-dom";
 import SideBar from "../components/SideBar";
 import Header from "../components/Header";
+import { Eye, EyeOff } from "lucide-react";
 
 import "./BuyData.css";
 
@@ -12,10 +13,12 @@ const BuyAirtime = () => {
     airtimeType: "",
     mobileNumber: "",
     amount: "",
+    transactionPin: "",
     // bypassValidator: false,
   });
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+  const [showPin, setShowPin] = useState(false);
 
   const { buyAirtime } = useWallet();
   const navigate = useNavigate();
@@ -50,12 +53,17 @@ const BuyAirtime = () => {
       setError("Please enter a valid amount (minimum ₦100)");
       return;
     }
+    if (!formData.transactionPin) {
+      setError("Please enter your transaction pin");
+      return;
+    }
 
     const payload = {
       network: formData.network,
       airtime_type: formData.airtimeType,
       mobile_number: formData.mobileNumber,
       amount: Number(formData.amount),
+      pin: formData.transactionPin,
       // bypass_validator: formData.bypassValidator,
     };
 
@@ -163,6 +171,28 @@ const BuyAirtime = () => {
                     placeholder="Minimum of ₦100"
                     min={100}
                   />
+                </div>
+
+                {/* TRANSACTION PIN */}
+                <div className="form-group">
+                  <label>Transaction Pin *</label>
+                  <input
+                    type={showPin ? "text" : "password"}
+                    name="transactionPin"
+                    value={formData.transactionPin}
+                    onChange={handleChange}
+                    maxLength="4"
+                    placeholder="Enter your 4-digit transaction pin"
+                  />
+                  <button
+                    type="button"
+                    className="password-toggle"
+                    onClick={() => setShowPin((prev) => !prev)}
+                    aria-label={showPin ? "Hide pin" : "Show pin"}
+                    tabIndex={-1}
+                  >
+                    {showPin ? <Eye /> : <EyeOff />}
+                  </button>
                 </div>
 
                 {/* Bypass Validator */}

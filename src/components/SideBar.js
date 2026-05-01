@@ -12,6 +12,7 @@ import {
   LogOut,
   Signal,
   ArrowRightLeft,
+  FileLock,
 } from "lucide-react";
 import { useWallet } from "../context/walletContext";
 import { useAuth } from "../context/authContext";
@@ -108,17 +109,23 @@ const SideBar = ({ marketerWalletBalance }) => {
           <DollarSign size={20} />
           <span>Pricing</span>
         </NavLink>
-        <div className="nav-item">
+
+        <NavLink className="nav-item" to="/transaction-pin">
+          <FileLock size={20} />
+          <span>Set Pin</span>
+        </NavLink>
+
+        {/* <div className="nav-item">
           <UserPlus size={20} />
           <span>Account</span>
-        </div>
+        </div> */}
 
-        {safeRole !== "marketer" && (
+        {/* {safeRole !== "marketer" && (
           <div className="nav-item">
             <Settings size={20} />
             <span>Settings</span>
           </div>
-        )}
+        )} */}
 
         {safeRole === "marketer" && (
           <div className="admin-nav-links">

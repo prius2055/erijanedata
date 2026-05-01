@@ -32,6 +32,7 @@ import Pricing from "./pages/Pricing";
 import VirtualAccount from "./pages/VirtualAccount";
 
 import "./App.css";
+import SetPin from "./pages/SetPin";
 
 function App() {
   return (
@@ -73,6 +74,7 @@ function App() {
                     />
                     <Route path="/prices" element={<Pricing />} />
                     <Route path="/success" element={<ThankYou />} />
+                    <Route path="/transaction-pin" element={<SetPin />} />
 
                     <Route
                       path="/transactions"

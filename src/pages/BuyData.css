@@ -72,6 +72,7 @@
 
 /* Form Group */
 .form-group {
+  position: relative;
   display: flex;
   flex-direction: column;
 }
@@ -155,6 +156,17 @@
   padding: 12px 16px;
   background: #fee2e2;
   color: #dc2626;
+  border-radius: 10px;
+  font-size: 14px;
+  border: 1px solid #fecaca;
+  animation: shake 0.3s ease-out;
+}
+
+/* Error Message */
+.form-success {
+  padding: 12px 16px;
+  background: #fee2e2;
+  color: #68e216;
   border-radius: 10px;
   font-size: 14px;
   border: 1px solid #fecaca;
