@@ -3,7 +3,7 @@ import { useWallet } from "../context/walletContext";
 import { useNavigate } from "react-router-dom";
 import SideBar from "../components/SideBar";
 import Header from "../components/Header";
-import { Eye, EyeOff } from "lucide-react";
+// import { Eye, EyeOff } from "lucide-react";
 
 import "./BuyData.css";
 
@@ -18,7 +18,7 @@ const BuyAirtime = () => {
   });
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
-  const [showPin, setShowPin] = useState(false);
+  // const [showPin, setShowPin] = useState(false);
 
   const { buyAirtime } = useWallet();
   const navigate = useNavigate();
@@ -174,7 +174,7 @@ const BuyAirtime = () => {
                 </div>
 
                 {/* TRANSACTION PIN */}
-                <div className="form-group">
+                {/* <div className="form-group">
                   <label>Transaction Pin *</label>
                   <input
                     type={showPin ? "text" : "password"}
@@ -193,7 +193,7 @@ const BuyAirtime = () => {
                   >
                     {showPin ? <Eye /> : <EyeOff />}
                   </button>
-                </div>
+                </div> */}
 
                 {/* Bypass Validator */}
                 {/* <div className="form-group checkbox-group">

@@ -3,7 +3,7 @@ import SideBar from "../components/SideBar";
 import Header from "../components/Header";
 import { useWallet } from "../context/walletContext";
 import { capitalize } from "../utils/helperFunctions";
-import { Eye, EyeOff } from "lucide-react";
+// import { Eye, EyeOff } from "lucide-react";
 
 import "./BuyData.css";
 
@@ -35,7 +35,7 @@ const EnergyMeter = () => {
 
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
-  const [showPin, setShowPin] = useState(false);
+  // const [showPin, setShowPin] = useState(false);
 
   const { meterValidation, meterRecharge } = useWallet();
 
@@ -296,7 +296,7 @@ const EnergyMeter = () => {
                   </div>
 
                   {/* TRANSACTION PIN */}
-                  <div className="form-group">
+                  {/* <div className="form-group">
                     <label>Transaction Pin *</label>
                     <input
                       type={showPin ? "text" : "password"}
@@ -315,7 +315,7 @@ const EnergyMeter = () => {
                     >
                       {showPin ? <Eye /> : <EyeOff />}
                     </button>
-                  </div>
+                  </div> */}
 
                   {/* Submit Button */}
 

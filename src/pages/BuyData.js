@@ -3,7 +3,8 @@ import { useWallet } from "../context/walletContext";
 import { useNavigate } from "react-router-dom";
 import SideBar from "../components/SideBar";
 import Header from "../components/Header";
-import { Eye, EyeOff } from "lucide-react";
+// import { Eye, EyeOff } from "lucide-react";
+
 import "./BuyData.css";
 
 const BuyData = () => {
@@ -32,7 +33,7 @@ const BuyData = () => {
 
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState("");
-  const [showPin, setShowPin] = useState(false);
+  // const [showPin, setShowPin] = useState(false);
 
   /* -----------------------------
      DERIVED DATA (SAFE)
@@ -278,7 +279,7 @@ const BuyData = () => {
                 </div>
 
                 {/* TRANSACTION PIN */}
-                <div className="form-group">
+                {/* <div className="form-group">
                   <label>Transaction Pin *</label>
                   <input
                     type={showPin ? "text" : "password"}
@@ -297,7 +298,7 @@ const BuyData = () => {
                   >
                     {showPin ? <Eye /> : <EyeOff />}
                   </button>
-                </div>
+                </div> */}
                 <button
                   type="submit"
                   disabled={!selectedPlan || submitting}

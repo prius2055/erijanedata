@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import SideBar from "../components/SideBar";
 import Header from "../components/Header";
 import { useWallet } from "../context/walletContext";
-import { Eye, EyeOff } from "lucide-react";
+// import { Eye, EyeOff } from "lucide-react";
 
 import "./BuyData.css";
 
@@ -29,7 +29,7 @@ const CableTv = () => {
 
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
-  const [showPin, setShowPin] = useState(false);
+  // const [showPin, setShowPin] = useState(false);
 
   const { cableValidation, cableRecharge } = useWallet();
 
@@ -254,7 +254,7 @@ const CableTv = () => {
                   </div>
 
                   {/* TRANSACTION PIN */}
-                  <div className="form-group">
+                  {/* <div className="form-group">
                     <label>Transaction Pin *</label>
                     <input
                       type={showPin ? "text" : "password"}
@@ -273,7 +273,7 @@ const CableTv = () => {
                     >
                       {showPin ? <Eye /> : <EyeOff />}
                     </button>
-                  </div>
+                  </div> */}
 
                   {/* Submit Button */}
 
