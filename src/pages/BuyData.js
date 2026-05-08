@@ -1,5 +1,6 @@
 import React, { useState, useMemo, useEffect } from "react";
 import { useWallet } from "../context/walletContext";
+import { useAuth } from "../context/authContext";
 import { useNavigate } from "react-router-dom";
 import SideBar from "../components/SideBar";
 import Header from "../components/Header";
@@ -16,6 +17,8 @@ const BuyData = () => {
     fetchDataPlans,
   } = useWallet();
 
+  const { user } = useAuth();
+
   useEffect(() => {
     fetchDataPlans();
   }, [fetchDataPlans]);
@@ -27,7 +30,7 @@ const BuyData = () => {
     dataType: "",
     dataPlan: "",
     mobileNumber: "",
-    transactionPin: "",
+    // transactionPin: "",
     bypassValidator: false,
   });
 
@@ -114,19 +117,19 @@ const BuyData = () => {
       return;
     }
 
-    if (!formData.transactionPin) {
-      setError(
-        "Please enter your transaction pin. If you don't have a pin, Kindly set one before continuing with the transaction",
-      );
-      return;
-    }
+    // if (!formData.transactionPin) {
+    //   setError(
+    //     "Please enter your transaction pin. If you don't have a pin, Kindly set one before continuing with the transaction",
+    //   );
+    //   return;
+    // }
 
     const payload = {
       network: Number(selectedPlan.providerNetworkId),
       plan: Number(selectedPlan.providerPlanId),
       mobile_number: formData.mobileNumber,
       amount: selectedPlan.sellingPrice,
-      pin: formData.transactionPin,
+      // pin: formData.transactionPin,
       Ported_number: true,
     };
 
@@ -247,8 +250,11 @@ const BuyData = () => {
                         key={plan.providerPlanId}
                         value={plan.providerPlanId}
                       >
-                        {plan.planName} - ₦{plan.sellingPrice} ({plan.validity})
-                        {plan.planType}
+                        {plan.planName} - ₦
+                        {user.role === "reseller"
+                          ? plan.resellerPrice
+                          : plan.sellingPrice}
+                        ({plan.validity}){plan.planType}
                       </option>
                     ))}
                   </select>
@@ -275,7 +281,14 @@ const BuyData = () => {
                 {/* AMOUNT */}
                 <div className="form-group">
                   <label>Amount (₦)</label>
-                  <input readOnly value={selectedPlan?.sellingPrice || ""} />
+                  <input
+                    readOnly
+                    value={
+                      user.role === "reseller"
+                        ? selectedPlan?.resellerPrice
+                        : selectedPlan?.sellingPrice || ""
+                    }
+                  />
                 </div>
 
                 {/* TRANSACTION PIN */}
@@ -306,7 +319,7 @@ const BuyData = () => {
                 >
                   {submitting
                     ? "Processing..."
-                    : `Buy Now ₦${selectedPlan?.sellingPrice || 0}`}
+                    : `Buy Now ₦${user.role === "reseller" ? selectedPlan?.resellerPrice : selectedPlan?.sellingPrice || 0}`}
                 </button>
               </div>
 
