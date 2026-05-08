@@ -253,7 +253,9 @@ const BuyData = () => {
                         {plan.planName} - ₦
                         {user.role === "reseller"
                           ? plan.resellerPrice
-                          : plan.sellingPrice}
+                          : user.role === "marketer"
+                            ? plan.providerPrice
+                            : plan.sellingPrice}
                         ({plan.validity}){plan.planType}
                       </option>
                     ))}
@@ -286,7 +288,9 @@ const BuyData = () => {
                     value={
                       user.role === "reseller"
                         ? selectedPlan?.resellerPrice
-                        : selectedPlan?.sellingPrice || ""
+                        : user.role === "marketer"
+                          ? selectedPlan?.providerPrice
+                          : selectedPlan?.sellingPrice || ""
                     }
                   />
                 </div>
@@ -319,7 +323,7 @@ const BuyData = () => {
                 >
                   {submitting
                     ? "Processing..."
-                    : `Buy Now ₦${user.role === "reseller" ? selectedPlan?.resellerPrice : selectedPlan?.sellingPrice || 0}`}
+                    : `Buy Now ₦${user.role === "reseller" ? selectedPlan?.resellerPrice : user.role === "marketer" ? selectedPlan?.providerPrice : selectedPlan?.sellingPrice || 0}`}
                 </button>
               </div>
 
