@@ -323,7 +323,7 @@ const BuyData = () => {
                 >
                   {submitting
                     ? "Processing..."
-                    : `Buy Now ₦${user.role === "reseller" ? selectedPlan?.resellerPrice : user.role === "marketer" ? selectedPlan?.providerPrice : selectedPlan?.sellingPrice || 0}`}
+                    : `Buy Now ₦${user?.role === "reseller" ? (selectedPlan?.resellerPrice ?? 0) : user?.role === "marketer" ? (selectedPlan?.providerPrice ?? 0) : user?.role === "user" ? (selectedPlan?.sellingPrice ?? 0) : 0}`}
                 </button>
               </div>
 
