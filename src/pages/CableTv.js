@@ -24,7 +24,7 @@ const CableTv = () => {
     customerPhone: "",
     amount: "",
     customerName: "",
-    transactionPin: "",
+    // transactionPin: "",
   });
 
   const [loading, setLoading] = useState(false);
@@ -135,7 +135,7 @@ const CableTv = () => {
         customerPhone: "",
         amount: "",
         customerName: "",
-        transactionPin: "",
+        // transactionPin: "",
       });
     } else {
       return;

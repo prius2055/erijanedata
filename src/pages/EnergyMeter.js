@@ -30,7 +30,7 @@ const EnergyMeter = () => {
     amount: "",
     customerName: "",
     customerAddress: "",
-    transactionPin: "",
+    // transactionPin: "",
   });
 
   const [loading, setLoading] = useState(false);
@@ -77,10 +77,10 @@ const EnergyMeter = () => {
       return;
     }
 
-    if (!formData.transactionPin) {
-      setError("Please enter your transaction pin");
-      return;
-    }
+    // if (!formData.transactionPin) {
+    //   setError("Please enter your transaction pin");
+    //   return;
+    // }
 
     const payload = {
       disco_name: formData.discoName,
@@ -88,7 +88,7 @@ const EnergyMeter = () => {
       meter_number: formData.meterNumber,
       MeterType: formData.meterType,
       customer_number: formData.customerPhone,
-      pin: formData.transactionPin,
+      // pin: formData.transactionPin,
     };
 
     console.log(payload);
@@ -152,7 +152,7 @@ const EnergyMeter = () => {
       customer_number: formData.customerPhone,
       meter_name: formData.customerName,
       meter_address: formData.customerAddress,
-      pin: formData.transactionPin,
+      // pin: formData.transactionPin,
     };
 
     setLoading(true);

@@ -13,7 +13,7 @@ const BuyAirtime = () => {
     airtimeType: "",
     mobileNumber: "",
     amount: "",
-    transactionPin: "",
+    // transactionPin: "",
     // bypassValidator: false,
   });
   const [loading, setLoading] = useState(false);
@@ -53,17 +53,17 @@ const BuyAirtime = () => {
       setError("Please enter a valid amount (minimum ₦100)");
       return;
     }
-    if (!formData.transactionPin) {
-      setError("Please enter your transaction pin");
-      return;
-    }
+    // if (!formData.transactionPin) {
+    //   setError("Please enter your transaction pin");
+    //   return;
+    // }
 
     const payload = {
       network: formData.network,
       airtime_type: formData.airtimeType,
       mobile_number: formData.mobileNumber,
       amount: Number(formData.amount),
-      pin: formData.transactionPin,
+      // pin: formData.transactionPin,
       // bypass_validator: formData.bypassValidator,
     };
 
